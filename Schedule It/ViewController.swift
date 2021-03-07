@@ -78,20 +78,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 		return false
 	}
     
+    
     @IBAction func didTapAdd() {
-        // show add vc
-        guard let vc = storyboard?.instantiateViewController(identifier: "add") as? AddEventMenu else {
-            return
-        }
-
-        vc.title = "New Reminder"
-        vc.navigationItem.largeTitleDisplayMode = .never
+        
+        let vc = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
+        
+        vc.title = "New Event"
         vc.completion = { title, body, startDate, endDate in
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
                 let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
                 self.models.append(new)
                 self.table.reloadData()
+                
+                print("checkpoint 3")
 
                 let content = UNMutableNotificationContent()
                 content.title = title
@@ -112,10 +112,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
         navigationController?.pushViewController(vc, animated: true)
-
     }
 
 }
+ 
 
 extension ViewController: UITableViewDelegate {
 

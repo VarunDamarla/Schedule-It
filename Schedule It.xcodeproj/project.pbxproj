@@ -10,12 +10,12 @@
 		E3192DC625F507A3009202C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3192DC525F507A3009202C6 /* AppDelegate.swift */; };
 		E3192DC825F507A3009202C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3192DC725F507A3009202C6 /* SceneDelegate.swift */; };
 		E3192DCA25F507A3009202C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3192DC925F507A3009202C6 /* ViewController.swift */; };
-		E3192DCD25F507A3009202C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3192DCB25F507A3009202C6 /* Main.storyboard */; };
 		E3192DCF25F507A3009202C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3192DCE25F507A3009202C6 /* Assets.xcassets */; };
 		E3192DD225F507A3009202C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3192DD025F507A3009202C6 /* LaunchScreen.storyboard */; };
 		E38A90EB25F50848009EE931 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38A90E925F50848009EE931 /* CalendarHelper.swift */; };
 		E38A90EC25F50848009EE931 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38A90EA25F50848009EE931 /* CalendarCell.swift */; };
-		E38A90F225F514A8009EE931 /* AddEventMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38A90F125F514A8009EE931 /* AddEventMenu.swift */; };
+		E38A910025F521A6009EE931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38A90FE25F521A6009EE931 /* Main.storyboard */; };
+		E38A910425F52367009EE931 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38A910325F52367009EE931 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +23,13 @@
 		E3192DC525F507A3009202C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3192DC725F507A3009202C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E3192DC925F507A3009202C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E3192DCC25F507A3009202C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3192DCE25F507A3009202C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3192DD125F507A3009202C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3192DD325F507A3009202C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E38A90E925F50848009EE931 /* CalendarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		E38A90EA25F50848009EE931 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
-		E38A90F125F514A8009EE931 /* AddEventMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventMenu.swift; sourceTree = "<group>"; };
+		E38A90FF25F521A6009EE931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E38A910325F52367009EE931 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,16 +62,16 @@
 		E3192DC425F507A3009202C6 /* Schedule It */ = {
 			isa = PBXGroup;
 			children = (
+				E38A910325F52367009EE931 /* AddViewController.swift */,
+				E38A90FE25F521A6009EE931 /* Main.storyboard */,
 				E38A90EA25F50848009EE931 /* CalendarCell.swift */,
 				E38A90E925F50848009EE931 /* CalendarHelper.swift */,
 				E3192DC525F507A3009202C6 /* AppDelegate.swift */,
 				E3192DC725F507A3009202C6 /* SceneDelegate.swift */,
 				E3192DC925F507A3009202C6 /* ViewController.swift */,
-				E3192DCB25F507A3009202C6 /* Main.storyboard */,
 				E3192DCE25F507A3009202C6 /* Assets.xcassets */,
 				E3192DD025F507A3009202C6 /* LaunchScreen.storyboard */,
 				E3192DD325F507A3009202C6 /* Info.plist */,
-				E38A90F125F514A8009EE931 /* AddEventMenu.swift */,
 			);
 			path = "Schedule It";
 			sourceTree = "<group>";
@@ -133,9 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38A910025F521A6009EE931 /* Main.storyboard in Resources */,
 				E3192DD225F507A3009202C6 /* LaunchScreen.storyboard in Resources */,
 				E3192DCF25F507A3009202C6 /* Assets.xcassets in Resources */,
-				E3192DCD25F507A3009202C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 			files = (
 				E3192DCA25F507A3009202C6 /* ViewController.swift in Sources */,
 				E38A90EB25F50848009EE931 /* CalendarHelper.swift in Sources */,
-				E38A90F225F514A8009EE931 /* AddEventMenu.swift in Sources */,
+				E38A910425F52367009EE931 /* AddViewController.swift in Sources */,
 				E3192DC625F507A3009202C6 /* AppDelegate.swift in Sources */,
 				E3192DC825F507A3009202C6 /* SceneDelegate.swift in Sources */,
 				E38A90EC25F50848009EE931 /* CalendarCell.swift in Sources */,
@@ -158,20 +158,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E3192DCB25F507A3009202C6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E3192DCC25F507A3009202C6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E3192DD025F507A3009202C6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E3192DD125F507A3009202C6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E38A90FE25F521A6009EE931 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E38A90FF25F521A6009EE931 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
