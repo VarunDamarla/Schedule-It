@@ -7,11 +7,6 @@ target 'Schedule It' do
 
   # Pods for Schedule It
 
-<<<<<<< HEAD
 pod 'FSCalendar' 
 
-=======
-pod 'FSCalendar'
- 
->>>>>>> a9c81ab3b894645b43bcfa2d9bd3abaf71d50ac3
 end
