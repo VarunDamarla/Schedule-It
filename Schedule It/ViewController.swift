@@ -1,8 +1,10 @@
 import UIKit
-import UserNotifications
+import FSCalendar
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource {
+    
     @IBOutlet var table: UITableView!
+    @IBOutlet var calendar: FSCalendar!
 
     var models = [MyEvent]()
 	
@@ -11,10 +13,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        calendar.delegate = self
+        calendar.dataSource = self
         table.delegate = self
         table.dataSource = self
 	}
     
+    // testing commit
     @IBAction func didTapAdd() {
         
         let vc = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
