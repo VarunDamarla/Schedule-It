@@ -5,11 +5,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var table: UITableView!
     @IBOutlet var calendar: FSCalendar!
+    
+    var database: [MyEvent] = []
 
-    var events = [MyEvent]()
-    var filteredEvents = [MyEvent]()
-	var selectedDate = Date()
-    var selected = false
+    var events: [MyEvent] {
+        get {
+            guard let date = selectedDate else { return [] }
+            return database.filter {
+                Calendar.current.isDate(date, inSameDayAs: $0.startDate) || ($0.startDate...$0.endDate).contains(date)
+            }
+        }
+    }
+    var selectedDate: Date? = Date()
     var errorMessage = "No events today!"
     let formatter = DateFormatter()
 	
@@ -31,46 +38,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addMenu.completion = { title, body, startDate, endDate in DispatchQueue.main.async {
             self.navigationController?.popToRootViewController(animated: true)
             let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
-                self.events.append(new)
+            self.database.append(new)
+            self.table.reloadData()
             }
         }
         navigationController?.pushViewController(addMenu, animated: true)
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
-    }
-    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selected = true
-        print("checkpoint 1", filteredEvents.count)
         selectedDate = date
-        let selectedDateStr = formatter.string(from: selectedDate)
-        for event in events {
-            if selectedDateStr == formatter.string(from: event.startDate) {
-                filteredEvents.append(event)
-            }
-        }
-        for event in filteredEvents {
-            print(event.title, formatter.string(from: event.startDate), formatter.string(from: event.endDate))
-        }
         self.table.reloadData()
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        filteredEvents.removeAll()
+        self.selectedDate = nil
         self.table.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -79,10 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var cellText = ""
         var detailText = ""
         
-        if (selected && filteredEvents.count != 0) {
-            print(filteredEvents.count)
-            cellText = filteredEvents[indexPath.row].title
-            date = filteredEvents[indexPath.row].startDate
+        if (events.count != 0) {
+            cellText = events[indexPath.row].title
+            date = events[indexPath.row].startDate
             detailText = formatter.string(from: date)
         }
         
