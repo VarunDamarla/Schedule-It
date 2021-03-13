@@ -1,11 +1,3 @@
-//
-//  AddViewController.swift
-//  MyReminders
-//
-//  Created by Afraz Siddiqui on 3/20/20.
-//  Copyright © 2020 ASN GROUP LLC. All rights reserved.
-//
-
 import UIKit
 
 class AddViewController: UIViewController, UITextFieldDelegate {

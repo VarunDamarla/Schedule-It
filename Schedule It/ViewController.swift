@@ -6,9 +6,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var table: UITableView!
     @IBOutlet var calendar: FSCalendar!
 
-    var models = [MyEvent]()
-	
+    var events = [MyEvent]()
+    var filteredEvents = [MyEvent]()
 	var selectedDate = Date()
+    var selected = false
+    var errorMessage = "No events today!"
+    let formatter = DateFormatter()
 	
 	
 	override func viewDidLoad() {
@@ -17,23 +20,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         calendar.dataSource = self
         table.delegate = self
         table.dataSource = self
+        formatter.dateFormat = "MMM, dd, YYYY"
 	}
-    
-    // testing commit
+
     @IBAction func didTapAdd() {
         
-        let vc = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
+        let addMenu = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
         
-        vc.title = "New Event"
-        vc.completion = { title, body, startDate, endDate in DispatchQueue.main.async {
-                self.navigationController?.popToRootViewController(animated: true)
-                let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
-                self.models.append(new)
-                self.table.reloadData()
-                print("checkpoint 3")
+        addMenu.title = "New Event"
+        addMenu.completion = { title, body, startDate, endDate in DispatchQueue.main.async {
+            self.navigationController?.popToRootViewController(animated: true)
+            let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
+                self.events.append(new)
             }
         }
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(addMenu, animated: true)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -45,20 +46,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return events.count
     }
+    
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        selected = true
+        print("checkpoint 1", filteredEvents.count)
+        selectedDate = date
+        let selectedDateStr = formatter.string(from: selectedDate)
+        for event in events {
+            if selectedDateStr == formatter.string(from: event.startDate) {
+                filteredEvents.append(event)
+            }
+        }
+        for event in filteredEvents {
+            print(event.title, formatter.string(from: event.startDate), formatter.string(from: event.endDate))
+        }
+        self.table.reloadData()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        filteredEvents.removeAll()
+        self.table.reloadData()
+    }
+    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = models[indexPath.row].title
-        let date = models[indexPath.row].startDate
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM, dd, YYYY"
-        cell.detailTextLabel?.text = formatter.string(from: date)
-
+        var date = Date()
+        var cellText = ""
+        var detailText = ""
+        
+        if (selected && filteredEvents.count != 0) {
+            print(filteredEvents.count)
+            cellText = filteredEvents[indexPath.row].title
+            date = filteredEvents[indexPath.row].startDate
+            detailText = formatter.string(from: date)
+        }
+        
+        cell.textLabel?.text = cellText
+        cell.detailTextLabel?.text = detailText
         cell.textLabel?.font = UIFont(name: "Arial", size: 25)
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 22)
+        
         return cell
     }
 
