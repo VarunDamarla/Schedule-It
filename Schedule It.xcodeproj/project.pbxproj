@@ -15,6 +15,7 @@
 		E3220BAF25F7C6B50068FE26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3220BAE25F7C6B50068FE26 /* Assets.xcassets */; };
 		E3220BB225F7C6B50068FE26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3220BB025F7C6B50068FE26 /* LaunchScreen.storyboard */; };
 		E3220BBE25F7C7310068FE26 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BBD25F7C7310068FE26 /* AddViewController.swift */; };
+		E3A1603625FE4554005264D5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1603525FE4554005264D5 /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E3220BB125F7C6B50068FE26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3220BB325F7C6B50068FE26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3220BBD25F7C7310068FE26 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		E3A1603525FE4554005264D5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		EDC9BF5D21BE41708E5F223F /* Pods-Schedule It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule It.release.xcconfig"; path = "Target Support Files/Pods-Schedule It/Pods-Schedule It.release.xcconfig"; sourceTree = "<group>"; };
 		EF1F63FA04C66144D46B992B /* Pods_Schedule_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schedule_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				E3220BAE25F7C6B50068FE26 /* Assets.xcassets */,
 				E3220BB025F7C6B50068FE26 /* LaunchScreen.storyboard */,
 				E3220BB325F7C6B50068FE26 /* Info.plist */,
+				E3A1603525FE4554005264D5 /* ChartViewController.swift */,
 			);
 			path = "Schedule It";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				E3220BA625F7C6B40068FE26 /* AppDelegate.swift in Sources */,
 				E3220BBE25F7C7310068FE26 /* AddViewController.swift in Sources */,
 				E3220BA825F7C6B40068FE26 /* SceneDelegate.swift in Sources */,
+				E3A1603625FE4554005264D5 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

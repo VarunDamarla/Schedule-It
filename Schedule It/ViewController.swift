@@ -8,7 +8,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var database: [MyEvent] = []
 
-    var events: [MyEvent] {
+    public var events: [MyEvent] {
         get {
             guard let date = selectedDate else { return [] }
             return database.filter {
@@ -17,7 +17,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     var selectedDate: Date? = Date()
-    var errorMessage = "No events today!"
     let formatter = DateFormatter()
 	
 	
@@ -27,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         calendar.dataSource = self
         table.delegate = self
         table.dataSource = self
-        formatter.dateFormat = "MMM, dd, YYYY"
+        formatter.dateFormat = "MMM d, h:mm a"
 	}
 
     @IBAction func didTapAdd() {
@@ -43,6 +42,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         navigationController?.pushViewController(addMenu, animated: true)
+    }
+    
+    @IBAction func didTapChartView() {
+        
+        let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
+        self.navigationController?.popViewController(animated: true)
+        chartMenu.title = "Chart View"
+        navigationController?.pushViewController(chartMenu, animated: true)
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -79,7 +86,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-
 }
 
 struct MyEvent {
