@@ -16,8 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-    var selectedDate: Date? = Date()
-    let formatter = DateFormatter()
+    public var selectedDate: Date? = Date()
+    public let formatter = DateFormatter()
 	
 	
 	override func viewDidLoad() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.dataSource = self
         formatter.dateFormat = "MMM d, h:mm a"
 	}
-
+    
     @IBAction func didTapAdd() {
         
         let addMenu = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
@@ -42,10 +42,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         navigationController?.pushViewController(addMenu, animated: true)
+        
     }
     
     @IBAction func didTapChartView() {
-        
         let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
         self.navigationController?.popViewController(animated: true)
         chartMenu.title = "Chart View"

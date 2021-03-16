@@ -7,6 +7,7 @@ target 'Schedule It' do
 
   # Pods for Schedule It
 
-pod 'FSCalendar' 
+pod 'FSCalendar'
+pod 'Charts' 
 
 end
