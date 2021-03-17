@@ -2,7 +2,7 @@
 //  ChartViewController.swift
 //  Schedule It
 //
-//  Created by VarunDamarla on 3/14/21.
+//  Created by VarunDamarla on 3/01/21.
 //
 
 import UIKit
@@ -11,26 +11,22 @@ import Charts
 class ChartViewController: UIViewController, ChartViewDelegate {
     
     var chart = PieChartView()
-    var events: [MyEvent] = []
-    var formatter = ViewController().formatter
+    
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     var strDates = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         chart.delegate = self
-        formatter.dateFormat = "MMM d, h:mm a"
-        calculate()
     }
     
     
-    func calculate() {
-        
-        events = ViewController().events
-        print(events)
-        
+    func calculate(events: [MyEvent]) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        var i: Int = 0
         for event in events {
-            var i: Int = 0
+            i = 0
             if (formatter.string(from: event.startDate).contains("1:") && formatter.string(from: event.startDate).contains("AM")) {
                 i = 1
             } else if (formatter.string(from: event.startDate).contains("2:") && formatter.string(from: event.startDate).contains("AM")) {
@@ -78,12 +74,8 @@ class ChartViewController: UIViewController, ChartViewDelegate {
             } else if (formatter.string(from: event.startDate).contains("11:") && formatter.string(from: event.startDate).contains("PM")) {
                 i = 23
             }
-            
-            counts[i] = counts[i] + 1
+            counts[i] += 1
         }
-        
-        print(counts)
-        
     }
     
     

@@ -1,6 +1,14 @@
+//
+//  ChartViewController.swift
+//  Schedule It
+//
+//  Created by VarunDamarla on 2/11/21.
+//
+
+
 import UIKit
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddEventViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var bodyField: UITextField!

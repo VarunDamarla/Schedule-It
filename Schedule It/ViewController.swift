@@ -1,3 +1,10 @@
+//
+//  ChartViewController.swift
+//  Schedule It
+//
+//  Created by VarunDamarla on 2/01/21.
+//
+
 import UIKit
 import FSCalendar
 
@@ -31,14 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func didTapAdd() {
         
-        let addMenu = storyboard!.instantiateViewController(identifier: "add") as! AddViewController
+        let addMenu = storyboard!.instantiateViewController(identifier: "add") as! AddEventViewController
         
         addMenu.title = "New Event"
         addMenu.completion = { title, body, startDate, endDate in DispatchQueue.main.async {
-            self.navigationController?.popToRootViewController(animated: true)
-            let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
-            self.database.append(new)
-            self.table.reloadData()
+                self.navigationController?.popToRootViewController(animated: true)
+                let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
+                self.database.append(new)
+                self.table.reloadData()
             }
         }
         navigationController?.pushViewController(addMenu, animated: true)
@@ -49,6 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
         self.navigationController?.popViewController(animated: true)
         chartMenu.title = "Chart View"
+        chartMenu.calculate(events: events)
         navigationController?.pushViewController(chartMenu, animated: true)
     }
     
