@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func didTapAdd() {
         
-        let addMenu = storyboard!.instantiateViewController(identifier: "add") as! AddEventViewController
+        let addMenu = storyboard!.instantiateViewController(identifier: "add") as AddEventViewController
         
         addMenu.title = "New Event"
         addMenu.completion = { title, body, startDate, endDate in DispatchQueue.main.async {

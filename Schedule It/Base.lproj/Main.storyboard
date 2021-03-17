@@ -56,14 +56,17 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
                                         <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
                                         <color key="value" systemColor="systemOrangeColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
                                         <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titlePlaceholderColor">
+                                        <color key="value" systemColor="tertiaryLabelColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -131,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="rE0-wf-1Zw">
             <objects>
-                <viewController storyboardIdentifier="add" id="SAK-Jb-gM7" customClass="AddViewController" customModule="Schedule_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="SAK-Jb-gM7" customClass="AddEventViewController" customModule="Schedule_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dfi-R2-Zs2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,9 +218,24 @@
                     <view key="view" contentMode="scaleToFill" id="Haw-xl-8SO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVc-yH-Lta" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="136" width="374" height="374"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="IyO-Py-YpW"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tVc-yH-Lta" firstAttribute="leading" secondItem="IyO-Py-YpW" secondAttribute="leading" constant="20" id="IFf-Zg-67K"/>
+                            <constraint firstItem="IyO-Py-YpW" firstAttribute="trailing" secondItem="tVc-yH-Lta" secondAttribute="trailing" constant="20" id="Y7s-aW-54O"/>
+                            <constraint firstItem="tVc-yH-Lta" firstAttribute="top" secondItem="IyO-Py-YpW" secondAttribute="top" constant="92" id="mCC-ne-y1B"/>
+                            <constraint firstItem="IyO-Py-YpW" firstAttribute="bottom" secondItem="tVc-yH-Lta" secondAttribute="bottom" constant="352" id="vVD-LK-0W9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chart" destination="tVc-yH-Lta" id="coM-3l-oDf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPQ-YW-UXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,6 +248,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
