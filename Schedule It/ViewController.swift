@@ -53,14 +53,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.pushViewController(addMenu, animated: true)
     }
     
-    @IBAction func didTapEdit() {
-        let editMenu = storyboard!.instantiateViewController(identifier: "edit") as EditViewController
-        self.navigationController?.popViewController(animated: true)
-        editMenu.title = "Edit Event"
-        navigationController?.pushViewController(editMenu, animated: true)
-        
-    }
-    
     @IBAction func didTapChartView() {
         let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
         self.navigationController?.popViewController(animated: true)
