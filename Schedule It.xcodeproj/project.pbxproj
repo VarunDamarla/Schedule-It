@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F7BD35B1CE2938AA6F4A20F /* Pods_Schedule_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1F63FA04C66144D46B992B /* Pods_Schedule_It.framework */; };
+		E315AD192603BB330032958B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E315AD182603BB330032958B /* EditViewController.swift */; };
 		E3220BA625F7C6B40068FE26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BA525F7C6B40068FE26 /* AppDelegate.swift */; };
 		E3220BA825F7C6B40068FE26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BA725F7C6B40068FE26 /* SceneDelegate.swift */; };
 		E3220BAA25F7C6B40068FE26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BA925F7C6B40068FE26 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		2E33C47FD8A134E8AED71424 /* Pods-Schedule It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schedule It.debug.xcconfig"; path = "Target Support Files/Pods-Schedule It/Pods-Schedule It.debug.xcconfig"; sourceTree = "<group>"; };
+		E315AD182603BB330032958B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E3220BA225F7C6B40068FE26 /* Schedule It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schedule It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3220BA525F7C6B40068FE26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3220BA725F7C6B40068FE26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				E3220BB025F7C6B50068FE26 /* LaunchScreen.storyboard */,
 				E3220BB325F7C6B50068FE26 /* Info.plist */,
 				E3A1603525FE4554005264D5 /* ChartViewController.swift */,
+				E315AD182603BB330032958B /* EditViewController.swift */,
 			);
 			path = "Schedule It";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				E3220BAA25F7C6B40068FE26 /* ViewController.swift in Sources */,
 				E3220BA625F7C6B40068FE26 /* AppDelegate.swift in Sources */,
+				E315AD192603BB330032958B /* EditViewController.swift in Sources */,
 				E3220BBE25F7C7310068FE26 /* AddEventViewController.swift in Sources */,
 				E3220BA825F7C6B40068FE26 /* SceneDelegate.swift in Sources */,
 				E3A1603625FE4554005264D5 /* ChartViewController.swift in Sources */,

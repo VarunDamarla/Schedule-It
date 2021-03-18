@@ -99,6 +99,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Calendar" id="2lS-lX-8iZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="9Jl-ni-uVO">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didTapEdit" destination="BYZ-38-t0r" id="2fG-yo-itD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NkZ-uJ-hHa">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -220,7 +226,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVc-yH-Lta" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="136" width="374" height="374"/>
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -229,8 +235,8 @@
                         <constraints>
                             <constraint firstItem="tVc-yH-Lta" firstAttribute="leading" secondItem="IyO-Py-YpW" secondAttribute="leading" constant="20" id="IFf-Zg-67K"/>
                             <constraint firstItem="IyO-Py-YpW" firstAttribute="trailing" secondItem="tVc-yH-Lta" secondAttribute="trailing" constant="20" id="Y7s-aW-54O"/>
-                            <constraint firstItem="tVc-yH-Lta" firstAttribute="top" secondItem="IyO-Py-YpW" secondAttribute="top" constant="92" id="mCC-ne-y1B"/>
-                            <constraint firstItem="IyO-Py-YpW" firstAttribute="bottom" secondItem="tVc-yH-Lta" secondAttribute="bottom" constant="352" id="vVD-LK-0W9"/>
+                            <constraint firstItem="tVc-yH-Lta" firstAttribute="top" secondItem="IyO-Py-YpW" secondAttribute="top" id="mCC-ne-y1B"/>
+                            <constraint firstItem="IyO-Py-YpW" firstAttribute="bottom" secondItem="tVc-yH-Lta" secondAttribute="bottom" id="vVD-LK-0W9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -240,6 +246,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPQ-YW-UXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2592.753623188406" y="93.75"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="DIn-Id-aFv">
+            <objects>
+                <viewController storyboardIdentifier="edit" id="J9M-vl-2Uh" customClass="EditViewController" customModule="Schedule_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gs3-Pm-gt7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8Mf-lP-TUg"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1I-mr-T3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3404" y="94"/>
         </scene>
     </scenes>
     <resources>
@@ -251,6 +272,9 @@
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

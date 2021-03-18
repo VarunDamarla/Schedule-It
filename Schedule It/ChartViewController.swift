@@ -8,43 +8,42 @@
 import UIKit
 import Charts
 
-class ChartViewController: UIViewController, ChartViewDelegate {
+class ChartViewController: UIViewController {
     
     @IBOutlet var chart: PieChartView!
     
-    var counts = [Int]()
+    var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     var strDates = [String]()
     
     // Data Entries for the Pie Chart
-    var zeroethHrDataEntry = PieChartDataEntry(value: 0)
-    var firstHrDataEntry = PieChartDataEntry(value: 0)
-    var secondHrDataEntry = PieChartDataEntry(value: 0)
-    var thirdHrDataEntry = PieChartDataEntry(value: 0)
-    var fourthHrDataEntry = PieChartDataEntry(value: 0)
-    var fifthHrDataEntry = PieChartDataEntry(value: 0)
-    var sixthHrDataEntry = PieChartDataEntry(value: 0)
-    var seventhHrDataEntry = PieChartDataEntry(value: 0)
-    var eighthHrDataEntry = PieChartDataEntry(value: 0)
-    var ninthHrDataEntry = PieChartDataEntry(value: 0)
-    var tenthHrDataEntry = PieChartDataEntry(value: 0)
-    var eleventhHrDataEntry = PieChartDataEntry(value: 0)
-    var twelfthHrDataEntry = PieChartDataEntry(value: 0)
-    var thirteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var fourteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var fifteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var sixteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var seventeenthHrDataEntry = PieChartDataEntry(value: 0)
-    var eighteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var nineteenthHrDataEntry = PieChartDataEntry(value: 0)
-    var twentiethHrDataEntry = PieChartDataEntry(value: 0)
-    var twentyFirstHrDataEntry = PieChartDataEntry(value: 0)
-    var twentySecondHrDataEntry = PieChartDataEntry(value: 0)
-    var twentyThirdHrDataEntry = PieChartDataEntry(value: 0)
+    var zeroethHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var firstHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var secondHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var thirdHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var fourthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var fifthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var sixthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var seventhHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var eighthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var ninthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var tenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var eleventhHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var twelfthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var thirteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var fourteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var fifteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var sixteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var seventeenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var eighteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var nineteenthHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var twentiethHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var twentyFirstHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var twentySecondHrDataEntry = PieChartDataEntry(value: 0, label: "")
+    var twentyThirdHrDataEntry = PieChartDataEntry(value: 0, label: "")
     var allDataEntries = [PieChartDataEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chart.chartDescription?.text = "Chart View"
         
         // Setting up the values
         zeroethHrDataEntry.value = Double(counts[0])
@@ -73,37 +72,36 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         twentyThirdHrDataEntry.value = Double(counts[23])
         
         // Setting up the labels
-        zeroethHrDataEntry.label = "12:00AM"
-        firstHrDataEntry.label = "1:00AM"
-        secondHrDataEntry.label = "2:00AM"
-        thirdHrDataEntry.label = "3:00AM"
-        fourthHrDataEntry.label = "4:00AM"
-        fifthHrDataEntry.label = "5:00AM"
-        sixthHrDataEntry.label = "6:00AM"
-        seventhHrDataEntry.label = "7:00AM"
-        eighthHrDataEntry.label = "8:00AM"
-        ninthHrDataEntry.label = "9:00AM"
-        tenthHrDataEntry.label = "10:00AM"
-        eleventhHrDataEntry.label = "11:00AM"
-        twelfthHrDataEntry.label = "12:00PM"
-        thirteenthHrDataEntry.label = "1:00PM"
-        fourteenthHrDataEntry.label = "2:00PM"
-        fifteenthHrDataEntry.label = "3:00PM"
-        sixteenthHrDataEntry.label = "4:00PM"
-        seventeenthHrDataEntry.label = "5:00PM"
-        eighteenthHrDataEntry.label = "6:00PM"
-        nineteenthHrDataEntry.label = "7:00PM"
-        twentiethHrDataEntry.label = "8:00PM"
-        twentyFirstHrDataEntry.label = "9:00PM"
-        twentySecondHrDataEntry.label = "10:00PM"
-        twentyThirdHrDataEntry.label = "11:00PM"
+        if counts[0] > 0 { zeroethHrDataEntry.label = "12:00AM" }
+        if counts[1] > 0 { firstHrDataEntry.label = "1:00AM" }
+        if counts[2] > 0 { secondHrDataEntry.label = "2:00AM" }
+        if counts[3] > 0 { thirdHrDataEntry.label = "3:00AM" }
+        if counts[4] > 0 { fourthHrDataEntry.label = "4:00AM" }
+        if counts[5] > 0 { fifthHrDataEntry.label = "5:00AM" }
+        if counts[6] > 0 { sixthHrDataEntry.label = "6:00AM" }
+        if counts[7] > 0 { seventhHrDataEntry.label = "7:00AM" }
+        if counts[8] > 0 { eighthHrDataEntry.label = "8:00AM" }
+        if counts[9] > 0 { ninthHrDataEntry.label = "9:00AM" }
+        if counts[10] > 0 { tenthHrDataEntry.label = "10:00AM" }
+        if counts[11] > 0 { eleventhHrDataEntry.label = "11:00AM" }
+        if counts[12] > 0 { twelfthHrDataEntry.label = "12:00PM" }
+        if counts[13] > 0 { thirteenthHrDataEntry.label = "1:00PM" }
+        if counts[14] > 0 { fourteenthHrDataEntry.label = "2:00PM" }
+        if counts[15] > 0 { fifteenthHrDataEntry.label = "3:00PM" }
+        if counts[16] > 0 { sixteenthHrDataEntry.label = "4:00PM" }
+        if counts[17] > 0 { seventeenthHrDataEntry.label = "5:00PM" }
+        if counts[18] > 0 { eighteenthHrDataEntry.label = "6:00PM" }
+        if counts[19] > 0 { nineteenthHrDataEntry.label = "7:00PM" }
+        if counts[20] > 0 { twentiethHrDataEntry.label = "8:00PM" }
+        if counts[21] > 0 { twentyFirstHrDataEntry.label = "9:00PM" }
+        if counts[22] > 0 { twentySecondHrDataEntry.label = "10:00PM" }
+        if counts[23] > 1 { twentyThirdHrDataEntry.label = "11:00PM" }
         
         // Updating all the entries
         allDataEntries = [zeroethHrDataEntry, firstHrDataEntry, secondHrDataEntry, thirdHrDataEntry, fourthHrDataEntry, fifthHrDataEntry, sixthHrDataEntry, seventhHrDataEntry, eighthHrDataEntry, ninthHrDataEntry, tenthHrDataEntry, eleventhHrDataEntry, twelfthHrDataEntry, thirteenthHrDataEntry, fourteenthHrDataEntry, fifteenthHrDataEntry, sixteenthHrDataEntry, seventeenthHrDataEntry, eighteenthHrDataEntry, nineteenthHrDataEntry, twentiethHrDataEntry, twentyFirstHrDataEntry, twentySecondHrDataEntry, twentyThirdHrDataEntry]
         
         updateChartData()
         
-        chart.delegate = self
     }
     
     
@@ -172,7 +170,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         
         let colors = [UIColor(named: "zeroethHr"), UIColor(named: "firstHr"), UIColor(named: "secondHr"), UIColor(named: "thirdHr"), UIColor(named: "fourthHr"), UIColor(named: "fifthHr"), UIColor(named: "sixthHr"), UIColor(named: "seventhHr"), UIColor(named: "eighthHr"), UIColor(named: "ninthHr"), UIColor(named: "tenthHr"), UIColor(named: "eleventhHr"), UIColor(named: "twelfthHr"), UIColor(named: "thirteenthHr"), UIColor(named: "fourteenthHr"), UIColor(named: "fifteenthHr"), UIColor(named: "sixteenthHr"), UIColor(named: "seventeenthHr"), UIColor(named: "eighteenthHr"), UIColor(named: "nineteenthHr"), UIColor(named: "twentiethHr"), UIColor(named: "twentyFirstHr"), UIColor(named: "twentySecondHr"), UIColor(named: "twentyThirdHr")]
         
-        chartDataSet.colors = colors as [NSUIColor]
+        chartDataSet.colors = colors as! [NSUIColor]
         
         chart.data = chartData
         
@@ -181,9 +179,5 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-     
-        
-    
 
-}
+ }

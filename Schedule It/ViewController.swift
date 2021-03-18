@@ -49,6 +49,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         navigationController?.pushViewController(addMenu, animated: true)
+    }
+    
+    @IBAction func didTapEdit() {
+        let editMenu = storyboard!.instantiateViewController(identifier: "edit") as EditViewController
+        self.navigationController?.popViewController(animated: true)
+        editMenu.title = "Edit Event"
+        navigationController?.pushViewController(editMenu, animated: true)
         
     }
     
@@ -59,6 +66,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         chartMenu.calculate(events: events)
         navigationController?.pushViewController(chartMenu, animated: true)
     }
+    
+    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDate = date
@@ -90,7 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = cellText
         cell.detailTextLabel?.text = detailText
         cell.textLabel?.font = UIFont(name: "Arial", size: 25)
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 22)
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 18)
         
         return cell
     }
