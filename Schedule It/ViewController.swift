@@ -97,13 +97,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         table.deselectRow(at: indexPath, animated: true)
+        let item = tasks[indexPath.row]
         let options = UIAlertController(title: "Edit Task", message: nil, preferredStyle: .actionSheet)
         options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        
+        options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.deleteItem(item: item)
+        }))
         present(options, animated: true)
-        
-        
     }
     
     func getAllItems() {

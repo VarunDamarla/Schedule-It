@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
-        <!--Add Event View Controller-->
+        <!--Edit View Controller-->
         <scene sceneID="rE0-wf-1Zw">
             <objects>
-                <viewController storyboardIdentifier="add" id="SAK-Jb-gM7" customClass="AddEventViewController" customModule="Schedule_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="SAK-Jb-gM7" customClass="EditViewController" customModule="Schedule_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dfi-R2-Zs2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
