@@ -14,7 +14,7 @@
 		E3220BAD25F7C6B40068FE26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3220BAB25F7C6B40068FE26 /* Main.storyboard */; };
 		E3220BAF25F7C6B50068FE26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3220BAE25F7C6B50068FE26 /* Assets.xcassets */; };
 		E3220BB225F7C6B50068FE26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3220BB025F7C6B50068FE26 /* LaunchScreen.storyboard */; };
-		E3220BBE25F7C7310068FE26 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BBD25F7C7310068FE26 /* EditViewController.swift */; };
+		E3220BBE25F7C7310068FE26 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3220BBD25F7C7310068FE26 /* AddTaskViewController.swift */; };
 		E3A1603625FE4554005264D5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1603525FE4554005264D5 /* ChartViewController.swift */; };
 		E3D8D9632604064C005DE0CE /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3D8D9612604064C005DE0CE /* Database.xcdatamodeld */; };
 		E3D8D96C2604070E005DE0CE /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8D96A2604070E005DE0CE /* Task+CoreDataProperties.swift */; };
@@ -31,7 +31,7 @@
 		E3220BAE25F7C6B50068FE26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3220BB125F7C6B50068FE26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3220BB325F7C6B50068FE26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3220BBD25F7C7310068FE26 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		E3220BBD25F7C7310068FE26 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		E3A1603525FE4554005264D5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		E3D8D9622604064C005DE0CE /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		E3D8D96A2604070E005DE0CE /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "/Users/varundamarla/Documents/Schedule-It/Schedule It/Task+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				E3D8D96F2604071A005DE0CE /* TaskItem */,
-				E3220BBD25F7C7310068FE26 /* EditViewController.swift */,
+				E3220BBD25F7C7310068FE26 /* AddTaskViewController.swift */,
 				E3220BA525F7C6B40068FE26 /* AppDelegate.swift */,
 				E3220BA725F7C6B40068FE26 /* SceneDelegate.swift */,
 				E3220BA925F7C6B40068FE26 /* ViewController.swift */,
@@ -232,7 +232,7 @@
 				E3D8D96D2604070E005DE0CE /* Task+CoreDataClass.swift in Sources */,
 				E3220BAA25F7C6B40068FE26 /* ViewController.swift in Sources */,
 				E3220BA625F7C6B40068FE26 /* AppDelegate.swift in Sources */,
-				E3220BBE25F7C7310068FE26 /* EditViewController.swift in Sources */,
+				E3220BBE25F7C7310068FE26 /* AddTaskViewController.swift in Sources */,
 				E3220BA825F7C6B40068FE26 /* SceneDelegate.swift in Sources */,
 				E3D8D96C2604070E005DE0CE /* Task+CoreDataProperties.swift in Sources */,
 				E3A1603625FE4554005264D5 /* ChartViewController.swift in Sources */,

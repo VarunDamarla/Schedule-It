@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func didTapAdd() {
         
-        let addMenu = storyboard!.instantiateViewController(identifier: "add") as EditViewController
+        let addMenu = storyboard!.instantiateViewController(identifier: "add") as AddTaskViewController
         addMenu.title = "New Event"
         addMenu.completion = { title, body, date in DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
@@ -119,6 +119,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.present(nameEditor, animated: true)
                 
             }))
+             
+            
+            subOptions.addAction(UIAlertAction(title: "Edit date", style: .default, handler: { _ in
+                
+                let dateEditor = UIAlertController(title: "Edit Name", message: "Example entry: Mar 19, 2021 1:05 PM", preferredStyle: .alert)
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM d, yyyy h:mm a"
+                
+                dateEditor.addTextField(configurationHandler: nil)
+                let dateText = dateEditor.textFields?.first?.text
+                task.date = formatter.date(from: dateText!)
+                
+                dateEditor.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { [weak self] _ in
+                    guard let field = dateEditor.textFields?.first, let newDate = formatter.date(from: field.text!), !(field.text)!.isEmpty  else {
+                        return
+                    }
+                    self?.updateItemDate(item: task, newDate: newDate)
+                }))
+                
+                self.present(dateEditor, animated: true)
+                
+            }))
+            
             
             self.present(subOptions, animated: true)
         }))
@@ -157,7 +181,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func deleteItem(item: Task) {
         context.delete(item)
-        
         do {
             try context.save()
             getAllItems()

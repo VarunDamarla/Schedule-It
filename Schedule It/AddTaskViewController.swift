@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITextFieldDelegate {
+class AddTaskViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var bodyField: UITextField!
