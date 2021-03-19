@@ -97,11 +97,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         table.deselectRow(at: indexPath, animated: true)
-        let item = tasks[indexPath.row]
+        let task = tasks[indexPath.row]
         let options = UIAlertController(title: "Edit Task", message: nil, preferredStyle: .actionSheet)
         options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        options.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
+            let subOptions = UIAlertController(title: "Edit Options", message: nil, preferredStyle: .actionSheet)
+            subOptions.addAction(UIAlertAction(title: "Edit name", style: .default, handler: { _ in
+                
+                let nameEditor = UIAlertController(title: "Edit Name", message: "", preferredStyle: .alert)
+                nameEditor.addTextField(configurationHandler: nil)
+                nameEditor.textFields?.first?.text = task.name
+                
+                nameEditor.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { [weak self] _ in
+                    guard let field = nameEditor.textFields?.first, let newName = field.text, !newName.isEmpty else {
+                        return
+                    }
+                    self?.updateItemName(item: task, newName: newName)
+                }))
+                
+                self.present(nameEditor, animated: true)
+                
+            }))
+            
+            self.present(subOptions, animated: true)
+        }))
+        
+        
         options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
-            self?.deleteItem(item: item)
+            self?.deleteItem(item: task)
         }))
         present(options, animated: true)
     }
@@ -142,8 +166,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func updateItem(item: Task, newName: String, newDate: Date) {
+    func updateItemName(item: Task, newName: String) {
         item.name = newName
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    func updateItemDate(item: Task, newDate: Date) {
         item.date = newDate
         do {
             try context.save()
