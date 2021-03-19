@@ -131,8 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 formatter.dateFormat = "MMM d, yyyy h:mm a"
                 
                 dateEditor.addTextField(configurationHandler: nil)
-                let dateText = dateEditor.textFields?.first?.text
-                task.date = formatter.date(from: dateText!)
+                dateEditor.textFields?.first?.text = formatter.string(from: task.date!)
                 
                 dateEditor.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { [weak self] _ in
                     guard let field = dateEditor.textFields?.first, let newDate = formatter.date(from: field.text!), !(field.text)!.isEmpty  else {
