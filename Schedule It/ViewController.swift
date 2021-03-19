@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func didTapAdd() {
         
         let addMenu = storyboard!.instantiateViewController(identifier: "add") as AddTaskViewController
-        addMenu.title = "New Event"
+        addMenu.title = "New Task"
         addMenu.completion = { title, body, date in DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
                 self.createItem(name: title, date: date)
@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
         self.navigationController?.popViewController(animated: true)
         chartMenu.title = "Chart View"
-        chartMenu.calculate(events: tasks)
+        chartMenu.calculate(tasks: tasks)
         navigationController?.pushViewController(chartMenu, animated: true)
     }
     
@@ -103,6 +103,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         options.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
             let subOptions = UIAlertController(title: "Edit Options", message: nil, preferredStyle: .actionSheet)
+            
+            subOptions.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             subOptions.addAction(UIAlertAction(title: "Edit name", style: .default, handler: { _ in
                 
                 let nameEditor = UIAlertController(title: "Edit Name", message: "", preferredStyle: .alert)
