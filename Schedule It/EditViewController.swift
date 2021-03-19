@@ -8,14 +8,13 @@
 
 import UIKit
 
-class AddEventViewController: UIViewController, UITextFieldDelegate {
+class EditViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var titleField: UITextField!
     @IBOutlet var bodyField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
-    @IBOutlet var endDatePicker: UIDatePicker!
-
-    public var completion: ((String, String, Date, Date) -> Void)?
+    
+    public var completion: ((String, String, Date) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +28,8 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             let bodyText = bodyField.text, !bodyText.isEmpty {
 
             let targetDate = datePicker.date
-            let endTargetDate = endDatePicker.date
 
-            completion?(titleText, bodyText, targetDate, endTargetDate)
+            completion?(titleText, bodyText, targetDate)
 
         }
     }

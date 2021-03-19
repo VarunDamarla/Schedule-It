@@ -10,18 +10,18 @@ import FSCalendar
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource {
     
-    // test commit
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var table: UITableView!
     @IBOutlet var calendar: FSCalendar!
     
-    var database: [MyEvent] = []
+    private var database = [Task]()
 
-    public var events: [MyEvent] {
+    public var tasks: [Task] {
         get {
             guard let date = selectedDate else { return [] }
             return database.filter {
-                Calendar.current.isDate(date, inSameDayAs: $0.startDate) || ($0.startDate...$0.endDate).contains(date)
+                Calendar.current.isDate(date, inSameDayAs: $0.date!)
             }
         }
     }
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        getAllItems()
         calendar.delegate = self
         calendar.dataSource = self
         table.delegate = self
@@ -40,13 +41,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func didTapAdd() {
         
-        let addMenu = storyboard!.instantiateViewController(identifier: "add") as AddEventViewController
-        
+        let addMenu = storyboard!.instantiateViewController(identifier: "add") as EditViewController
         addMenu.title = "New Event"
-        addMenu.completion = { title, body, startDate, endDate in DispatchQueue.main.async {
+        addMenu.completion = { title, body, date in DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
-                let new = MyEvent(title: title, startDate: startDate, endDate: endDate, identifier: "id_\(title)")
-                self.database.append(new)
+                self.createItem(name: title, date: date)
                 self.table.reloadData()
             }
         }
@@ -57,11 +56,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let chartMenu = storyboard!.instantiateViewController(identifier: "chart") as ChartViewController
         self.navigationController?.popViewController(animated: true)
         chartMenu.title = "Chart View"
-        chartMenu.calculate(events: events)
+        chartMenu.calculate(events: tasks)
         navigationController?.pushViewController(chartMenu, animated: true)
     }
-    
-    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDate = date
@@ -74,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return tasks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,9 +81,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var cellText = ""
         var detailText = ""
         
-        if (events.count != 0) {
-            cellText = events[indexPath.row].title
-            date = events[indexPath.row].startDate
+        if (tasks.count != 0) {
+            cellText = tasks[indexPath.row].name!
+            date = tasks[indexPath.row].date!
             detailText = formatter.string(from: date)
         }
         
@@ -97,11 +94,63 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-}
-
-struct MyEvent {
-    let title: String
-    let startDate: Date
-    let endDate: Date
-    let identifier: String
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        table.deselectRow(at: indexPath, animated: true)
+        let options = UIAlertController(title: "Edit Task", message: nil, preferredStyle: .actionSheet)
+        options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        present(options, animated: true)
+        
+        
+    }
+    
+    func getAllItems() {
+        do {
+            database = try context.fetch(Task.fetchRequest())
+            DispatchQueue.main.async {
+                self.table.reloadData()
+            }
+        } catch {
+            // error
+        }
+        
+    }
+    
+    func createItem(name: String, date: Date) {
+        let newItem = Task(context: context)
+        newItem.name = name
+        newItem.date = date
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    func deleteItem(item: Task) {
+        context.delete(item)
+        
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
+    func updateItem(item: Task, newName: String, newDate: Date) {
+        item.name = newName
+        item.date = newDate
+        do {
+            try context.save()
+            getAllItems()
+        } catch {
+            
+        }
+    }
+    
 }
