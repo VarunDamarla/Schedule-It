@@ -13,7 +13,6 @@ class ChartViewController: UIViewController {
     @IBOutlet var chart: PieChartView!
     
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    var strDates = [String]()
     
     // Data Entries for the Pie Chart
     var zeroethHrDataEntry = PieChartDataEntry(value: 0, label: "")
