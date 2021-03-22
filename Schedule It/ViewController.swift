@@ -125,7 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             subOptions.addAction(UIAlertAction(title: "Edit date", style: .default, handler: { _ in
                 
-                let dateEditor = UIAlertController(title: "Edit Name", message: "Example entry: Mar 19, 2021 1:05 PM", preferredStyle: .alert)
+                let dateEditor = UIAlertController(title: "Edit date", message: "Example entry: Mar 19, 2021 1:05 PM", preferredStyle: .alert)
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "MMM d, yyyy h:mm a"
