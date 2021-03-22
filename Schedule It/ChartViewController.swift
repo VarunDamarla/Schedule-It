@@ -111,7 +111,7 @@ class ChartViewController: UIViewController {
         var i: Int = 0
         for task in tasks {
             i = 0
-            if (formatter.string(from: task.date!).contains("1:") && formatter.string(from: task.date!).contains("AM")) {
+            if (formatter.string(from: task.date!).contains("1:") && formatter.string(from: task.date!).contains("AM") && !(formatter.string(from: task.date!).contains("11:"))) {
                 i = 1
             } else if (formatter.string(from: task.date!).contains("2:") && formatter.string(from: task.date!).contains("AM")) {
                 i = 2
@@ -135,7 +135,7 @@ class ChartViewController: UIViewController {
                 i = 11
             } else if (formatter.string(from: task.date!).contains("12:") && formatter.string(from: task.date!).contains("PM")) {
                 i = 12
-            } else if (formatter.string(from: task.date!).contains("1:") && formatter.string(from: task.date!).contains("PM")) {
+            } else if (formatter.string(from: task.date!).contains("1:") && formatter.string(from: task.date!).contains("AM") && !(formatter.string(from: task.date!).contains("11:"))) {
                 i = 13
             } else if (formatter.string(from: task.date!).contains("2:") && formatter.string(from: task.date!).contains("PM")) {
                 i = 14
