@@ -167,11 +167,14 @@
                         <constraints>
                             <constraint firstItem="usO-1a-KkW" firstAttribute="top" secondItem="WF3-7V-Ie5" secondAttribute="bottom" constant="8" id="AuW-oA-aCL"/>
                             <constraint firstItem="bvZ-Dg-RBJ" firstAttribute="trailing" secondItem="usO-1a-KkW" secondAttribute="trailing" constant="10" id="KVc-gr-f3f"/>
+                            <constraint firstItem="bvZ-Dg-RBJ" firstAttribute="trailing" secondItem="usO-1a-KkW" secondAttribute="trailing" constant="10" id="NRe-ii-Uko"/>
                             <constraint firstItem="bda-L7-y90" firstAttribute="top" secondItem="bvZ-Dg-RBJ" secondAttribute="top" constant="10" id="Nl9-NZ-Bch"/>
                             <constraint firstItem="bvZ-Dg-RBJ" firstAttribute="bottom" secondItem="usO-1a-KkW" secondAttribute="bottom" constant="545" id="PZj-op-AwC"/>
                             <constraint firstItem="WF3-7V-Ie5" firstAttribute="top" secondItem="bda-L7-y90" secondAttribute="bottom" constant="20" id="Tbw-kd-45U"/>
                             <constraint firstItem="bvZ-Dg-RBJ" firstAttribute="trailing" secondItem="bda-L7-y90" secondAttribute="trailing" constant="10" id="UPg-Bm-ucf"/>
+                            <constraint firstItem="usO-1a-KkW" firstAttribute="top" secondItem="WF3-7V-Ie5" secondAttribute="bottom" constant="8" symbolic="YES" id="UjV-Sx-cvB"/>
                             <constraint firstItem="bvZ-Dg-RBJ" firstAttribute="trailing" secondItem="WF3-7V-Ie5" secondAttribute="trailing" constant="10" id="Xjp-jo-UBE"/>
+                            <constraint firstItem="usO-1a-KkW" firstAttribute="leading" secondItem="bvZ-Dg-RBJ" secondAttribute="leading" constant="10" id="ccy-Ne-liR"/>
                             <constraint firstItem="bda-L7-y90" firstAttribute="leading" secondItem="bvZ-Dg-RBJ" secondAttribute="leading" constant="10" id="eqT-k2-veM"/>
                             <constraint firstItem="usO-1a-KkW" firstAttribute="leading" secondItem="dfi-R2-Zs2" secondAttribute="leading" constant="10" id="myT-6r-c35"/>
                             <constraint firstItem="WF3-7V-Ie5" firstAttribute="leading" secondItem="bvZ-Dg-RBJ" secondAttribute="leading" constant="10" id="qm9-GP-w2X"/>
